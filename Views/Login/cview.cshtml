@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Project3.Models.Customer>
+
+@{
+    ViewData["Title"] = "cview";
+}
+
+<h1>cview</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<body style="background-image:url(https://t3.ftcdn.net/jpg/00/96/24/36/360_F_96243602_hgZuimFj1cJFqrrvERCnsq7NZ8VRZ7y7.jpg);background-repeat:no-repeat;background-size:cover">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pass)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Cpass)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pass)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Cpass)
+            </td>*@
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Cid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Cid">Delete</a>
+            </td>*@
+        </tr>
+}
+        <div class="form-group">
+            <input type="submit" value="Get Customer Details" class="btn btn-primary" />
+        </div>
+    </tbody>
+</table>
+</body>

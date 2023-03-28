@@ -1,0 +1,37 @@
+﻿@model Project3.Models.Pur
+
+@{
+    ViewData["Title"] = "bill";
+}
+
+<h1><div style="color:black">Bill for the Product Purchased</div></h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Purquantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Purquantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="Index"><div style="color:cornflowerblue">Back to List</div></a>
+</div>

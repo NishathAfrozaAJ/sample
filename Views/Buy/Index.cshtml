@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Project3.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1><div style="color:black">List of Products available for Purchase</div></h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                
+                    @Html.DisplayNameFor(model => model.Pname)
+                
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pcost)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Pquantity)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td><b>
+                        @Html.DisplayFor(modelItem => item.Pname)
+            </b>
+                
+            </td>
+            <td>
+                <b>
+                        @Html.DisplayFor(modelItem => item.Pcost)
+                </b>
+                
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Pquantity)
+            </td>*@
+            <td>
+                    <a asp-action="PlaceOrder" asp-route-id="@item.Pid"><b><div style="color:darkcyan">Buy</div></b></a>
+                    
+
+                    
+
+                @*<a asp-action="Details" asp-route-id="@item.Pid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Pid">Delete</a>*@
+            </td>
+        </tr>
+}
+        <a asp-action="allpur"><b><div style="color:darkcyan"> Show all my purchases</div></b></a>>
+        
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject IHttpContextAccessor HttpContextAccessor
+
+<ul class="navbar-nav">
+    @{
+        ViewBag.Data = HttpContextAccessor.HttpContext.Session.GetString("StName");
+        ViewBag.Data1 = HttpContextAccessor.HttpContext.Session.GetString("Cname");
+
+    }
+    @if (ViewBag.Data != null)
+
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @ViewBag.Data</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Login" asp-action="Logout">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else if(ViewBag.Data1 != null)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @ViewBag.Data1</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Login" asp-action="Logout">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Customer" asp-action="create">Register as New customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Customer" asp-action="Loginc">Login as Customer</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Login" asp-action="Login">Login as Admin</a>
+
+        </li>
+    }
+</ul>
+
